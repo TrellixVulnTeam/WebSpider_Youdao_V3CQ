@@ -19,7 +19,8 @@ html = urllib.request.urlopen(request).read().decode()
 soup = BeautifulSoup(html, 'html.parser')
 
 # find unfinishTask
-unfinishTask = soup.find_all(class_='unfinsh-task')
+unfinishTask = soup.find_all(class_='unfinsh-task')[1]
+
 #print(unfinishTask)
 
 # find fastTask and documentTask
