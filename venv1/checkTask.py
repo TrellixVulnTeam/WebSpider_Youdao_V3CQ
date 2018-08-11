@@ -20,6 +20,8 @@ soup = BeautifulSoup(html, 'html.parser')
 
 # find unfinishTask
 unfinishTask = soup.find_all(class_='unfinsh-task')[1]
+subSoup = BeautifulSoup(unfinishTask.prettify(), 'html.parser')
+print(subSoup.find_all(class_='detail-task'))
 
 #print(unfinishTask)
 
@@ -34,10 +36,11 @@ sender = 'jingyang_carl@qq.com'
 password = 'rhcxlnvlatsuddie'
 receiver = 'jingyang_carl@qq.com'
 message = MIMEText(unfinishTask.__str__(), 'html', 'utf-8')
-message['From'] = Header('jingyang_carl@qq.com', 'utf-8')
-message['To'] = Header('jingyang_carl@qq.com', 'utf-8')
+message['From'] = Header('jingyang.auto', 'utf-8')
+message['To'] = Header('jingyang_carl', 'utf-8')
 message['Subject'] = Header('Unfinished Task Report', 'utf-8')
 
-server = smtplib.SMTP_SSL('smtp.qq.com')
-server.login(sender, password)
-server.sendmail(sender, receiver, message.as_string())
+#server = smtplib.SMTP_SSL('smtp.qq.com')
+#server.login(sender, password)
+#server.sendmail(sender, receiver, message.as_string())
+print("email sending finished")
