@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="60cf88bf-9493-4de9-8076-6156b8717c6c" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/venv1/checkTask.py" afterPath="$PROJECT_DIR$/venv1/checkTask.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/checkTaskWhile.py" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/venv1/.gitattributes" afterPath="$PROJECT_DIR$/.gitattributes" />
+      <change beforePath="$PROJECT_DIR$/venv1/checkTask.py" afterPath="$PROJECT_DIR$/checkTask.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -13,11 +16,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="checkTask.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/venv1/checkTask.py">
+      <file leaf-file-name="checkTask.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/checkTask.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="96">
-              <caret line="27" column="28" lean-forward="false" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
+            <state relative-caret-position="229">
+              <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="64" selection-end-column="33" />
+              <folding>
+                <element signature="e#0#21#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="checkTaskWhile.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/checkTaskWhile.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-82">
+              <caret line="57" column="36" lean-forward="true" selection-start-line="57" selection-start-column="36" selection-end-line="57" selection-end-column="36" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
               </folding>
@@ -41,8 +56,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/checkTask.py" />
         <option value="$PROJECT_DIR$/venv1/checkTask.py" />
+        <option value="$PROJECT_DIR$/checkTask.py" />
+        <option value="$PROJECT_DIR$/checkTaskWhile.py" />
       </list>
     </option>
   </component>
@@ -94,6 +110,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\PyCharm\Workspace\Youdao" />
       <recent name="D:\PyCharm\Workspace\Youdao\venv1" />
       <recent name="D:\PyCharm\Workspace\Youdao\venv" />
     </key>
@@ -110,7 +127,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.checkTask (1)">
+  <component name="RunManager" selected="Python.checkTaskWhile">
     <configuration name="checkTask (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -123,7 +140,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Youdao" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/venv1/checkTask.py" />
+      <option name="SCRIPT_NAME" value="D:\PyCharm\Workspace\Youdao\checkTask.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -141,20 +158,40 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Youdao" />
-      <option name="SCRIPT_NAME" value="D:\PyCharm\Workspace\Youdao\venv1\checkTask.py" />
+      <option name="SCRIPT_NAME" value="D:\PyCharm\Workspace\Youdao\checkTask.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <list size="2">
+    <configuration name="checkTaskWhile" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Youdao" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/checkTaskWhile.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <list size="3">
       <item index="0" class="java.lang.String" itemvalue="Python.checkTask" />
       <item index="1" class="java.lang.String" itemvalue="Python.checkTask (1)" />
+      <item index="2" class="java.lang.String" itemvalue="Python.checkTaskWhile" />
     </list>
     <recent_temporary>
-      <list size="2">
-        <item index="0" class="java.lang.String" itemvalue="Python.checkTask (1)" />
-        <item index="1" class="java.lang.String" itemvalue="Python.checkTask" />
+      <list size="3">
+        <item index="0" class="java.lang.String" itemvalue="Python.checkTaskWhile" />
+        <item index="1" class="java.lang.String" itemvalue="Python.checkTask (1)" />
+        <item index="2" class="java.lang.String" itemvalue="Python.checkTask" />
       </list>
     </recent_temporary>
   </component>
@@ -205,7 +242,7 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/venv1/checkTask.py">
+    <entry file="file://$PROJECT_DIR$/checkTask.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -215,7 +252,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/venv1/checkTask.py">
+    <entry file="file://$PROJECT_DIR$/checkTask.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -225,7 +262,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/venv1/checkTask.py">
+    <entry file="file://$PROJECT_DIR$/checkTask.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="38">
           <caret line="2" column="51" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="51" />
@@ -235,7 +272,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/venv1/checkTask.py">
+    <entry file="file://$PROJECT_DIR$/checkTask.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -245,10 +282,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/venv1/checkTask.py">
+    <entry file="file://$PROJECT_DIR$/checkTask.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="27" column="28" lean-forward="false" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
+        <state relative-caret-position="229">
+          <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="64" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/checkTaskWhile.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-82">
+          <caret line="57" column="36" lean-forward="true" selection-start-line="57" selection-start-column="36" selection-end-line="57" selection-end-column="36" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
           </folding>

@@ -18,33 +18,38 @@ request.add_header('User-Agent', userAgent)
 html = urllib.request.urlopen(request).read().decode()
 soup = BeautifulSoup(html, 'html.parser')
 
+############################################################
 # find unfinishedTask
 unfinishedTask = soup.find_all(class_='unfinsh-task')[1]
-
-# find detail tasks
-unfinishedTask = BeautifulSoup(unfinishedTask.prettify(), 'html.parser')
-tasks = unfinishedTask.find_all(class_='detail-task')
-
-# find taskID for each tasks
-for task in tasks:
-    task = BeautifulSoup(task.prettify(), 'html.parser')
-    taskID = task.find('a').string
-    print(taskID)
-
-
-# find fastTask and documentTask
-claimTask = soup.find_all(class_='claim-task')
-fastTask = claimTask[0]
-documentTask = BeautifulSoup(claimTask[1].prettify(), 'html.parser')
-# tasks = documentTask.find_all(class_='detail-task')
 #
+# # find detail tasks
+# unfinishedTask = BeautifulSoup(unfinishedTask.prettify(), 'html.parser')
+# tasks = unfinishedTask.find_all(class_='detail-task')
+#
+# # find taskID for each tasks
 # for task in tasks:
 #     task = BeautifulSoup(task.prettify(), 'html.parser')
-#     taskID = task.find_all(class_)
+#     taskID = task.find('a').string
+#     print(taskID)
 
+############################################################
+# find fastTask and documentTask
+claimTask = soup.find_all(class_='claim-task')
+# fastTask = claimTask[0]
+documentTask = BeautifulSoup(claimTask[1].prettify(), 'html.parser')
 
-#print(DocumentTask)
+# find detail tasks
+tasks = documentTask.find_all(class_='detail-task')
 
+if len(tasks):
+    # there are tasks in the list
+    # find taskID for each tasks
+    for task in tasks:
+        task = BeautifulSoup(task.prettify(), 'html.parser')
+        taskID = task.find('a').string
+        print(taskID)
+
+############################################################
 # send email
 sender = 'jingyang_carl@qq.com'
 password = 'rhcxlnvlatsuddie'
