@@ -18,29 +18,43 @@ request.add_header('User-Agent', userAgent)
 html = urllib.request.urlopen(request).read().decode()
 soup = BeautifulSoup(html, 'html.parser')
 
-# find unfinishTask
-unfinishTask = soup.find_all(class_='unfinsh-task')[1]
-subSoup = BeautifulSoup(unfinishTask.prettify(), 'html.parser')
-print(subSoup.find_all(class_='detail-task'))
+# find unfinishedTask
+unfinishedTask = soup.find_all(class_='unfinsh-task')[1]
 
-#print(unfinishTask)
+# find detail tasks
+unfinishedTask = BeautifulSoup(unfinishedTask.prettify(), 'html.parser')
+tasks = unfinishedTask.find_all(class_='detail-task')
+
+# find taskID for each tasks
+for task in tasks:
+    task = BeautifulSoup(task.prettify(), 'html.parser')
+    taskID = task.find('a').string
+    print(taskID)
+
 
 # find fastTask and documentTask
 claimTask = soup.find_all(class_='claim-task')
 fastTask = claimTask[0]
-documentTask = claimTask[1];
+documentTask = BeautifulSoup(claimTask[1].prettify(), 'html.parser')
+# tasks = documentTask.find_all(class_='detail-task')
+#
+# for task in tasks:
+#     task = BeautifulSoup(task.prettify(), 'html.parser')
+#     taskID = task.find_all(class_)
+
+
 #print(DocumentTask)
 
 # send email
 sender = 'jingyang_carl@qq.com'
 password = 'rhcxlnvlatsuddie'
 receiver = 'jingyang_carl@qq.com'
-message = MIMEText(unfinishTask.__str__(), 'html', 'utf-8')
+message = MIMEText(tasks.__str__(), 'html', 'utf-8')
 message['From'] = Header('jingyang.auto', 'utf-8')
 message['To'] = Header('jingyang_carl', 'utf-8')
 message['Subject'] = Header('Unfinished Task Report', 'utf-8')
 
-#server = smtplib.SMTP_SSL('smtp.qq.com')
-#server.login(sender, password)
-#server.sendmail(sender, receiver, message.as_string())
-print("email sending finished")
+# server = smtplib.SMTP_SSL('smtp.qq.com')
+# server.login(sender, password)
+# server.sendmail(sender, receiver, message.as_string())
+# print("email sending finished")
