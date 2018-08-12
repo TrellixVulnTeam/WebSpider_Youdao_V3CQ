@@ -4,6 +4,8 @@ import smtplib
 from email.mime.text import MIMEText
 from email.header import Header
 import time
+import sys
+import os
 
 # set browser parameters
 url = 'https://f.youdao.com/ds/task.do?method=index'
@@ -91,7 +93,6 @@ try:
             # there isn't any task in the list
             continue
 
-
 finally:
     # the program meet some problem and need to report
     message = MIMEText('The Program meet some Problem', 'html', 'utf-8')
@@ -104,3 +105,6 @@ finally:
     server.login(sender, password)
     server.sendmail(sender, receiver, message.as_string())
     print("email sending finished")
+
+    python = sys.executable
+    os.execl(python, python, *sys.argv)
