@@ -1,11 +1,11 @@
-import urllib.request
 from bs4 import BeautifulSoup
-import smtplib
 from email.mime.text import MIMEText
 from email.header import Header
-import time
-import sys
 import os
+import smtplib
+import sys
+import time
+import urllib.request
 
 # set browser parameters
 url = 'https://f.youdao.com/ds/task.do?method=index'
@@ -87,10 +87,12 @@ try:
 
             else:
                 # there isn't a update, redo the while
+                print('running time: ' + str(time_current - time_start) + '; count: ' + str(whileCount) + '; status: no update')
                 continue
 
         else:
             # there isn't any task in the list
+            print('running time: ' + str(time_current - time_start) + '; count: ' + str(whileCount) + '; status: no task')
             continue
 
 finally:
