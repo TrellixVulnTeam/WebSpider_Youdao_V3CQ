@@ -25,63 +25,78 @@ request = urllib.request.Request(url)
 request.add_header('cookie', cookie)
 request.add_header('User-Agent', userAgent)
 
-# go into the while
-while True:
-    # print running info
-    time_current = time.time()
-    whileCount = whileCount+1
-    print('running time: ' + str(time_current - time_start) + '; count: ' + str(whileCount) + '; status: beginning')
+try:
+    # go into the while
+    while True:
+        # print running info
+        time_current = time.time()
+        whileCount = whileCount+1
+        print('running time: ' + str(time_current - time_start) + '; count: ' + str(whileCount) + '; status: beginning')
 
-    # open url
-    html = urllib.request.urlopen(request).read().decode()
-    soup = BeautifulSoup(html, 'html.parser')
-    print('running time: ' + str(time_current - time_start) + '; count: ' + str(whileCount) + '; status: open URL')
+        # open url
+        html = urllib.request.urlopen(request).read().decode()
+        soup = BeautifulSoup(html, 'html.parser')
+        print('running time: ' + str(time_current - time_start) + '; count: ' + str(whileCount) + '; status: open URL')
 
-    ############################################################
-    # find unfinishedTask
-    unfinishedTask = soup.find_all(class_='unfinsh-task')[1]
-    print('running time: ' + str(time_current - time_start) + '; count: ' + str(whileCount) + '; status: unfinished task')
+        ############################################################
+        # find unfinishedTask
+        unfinishedTask = soup.find_all(class_='unfinsh-task')[1]
+        print('running time: ' + str(time_current - time_start) + '; count: ' + str(whileCount) + '; status: unfinished task')
 
-    ############################################################
-    # find fastTask and documentTask
-    claimTask = soup.find_all(class_='claim-task')
-    # fastTask = claimTask[0]
-    documentTask = BeautifulSoup(claimTask[1].prettify(), 'html.parser')
-    print('running time: ' + str(time_current - time_start) + '; count: ' + str(whileCount) + '; status: document task')
+        ############################################################
+        # find fastTask and documentTask
+        claimTask = soup.find_all(class_='claim-task')
+        # fastTask = claimTask[0]
+        documentTask = BeautifulSoup(claimTask[1].prettify(), 'html.parser')
+        print('running time: ' + str(time_current - time_start) + '; count: ' + str(whileCount) + '; status: document task')
 
-    # find detail tasks
-    tasks = documentTask.find_all(class_='detail-task')
-    tempTaskIDPool = set()
+        # find detail tasks
+        tasks = documentTask.find_all(class_='detail-task')
+        tempTaskIDPool = set()
 
-    if len(tasks):
-        # there are tasks in the list
-        # find taskID for each tasks
-        for task in tasks:
-            task = BeautifulSoup(task.prettify(), 'html.parser')
-            taskID = task.find('a')
-            tempTaskIDPool.add(taskID.string)
+        if len(tasks):
+            # there are tasks in the list
+            # find taskID for each tasks
+            for task in tasks:
+                task = BeautifulSoup(task.prettify(), 'html.parser')
+                taskID = task.find('a')
+                tempTaskIDPool.add(taskID.string)
 
-        if len(tempTaskIDPool.symmetric_difference(taskIDPool)):
-            # there is an update, write the update task and unfinished task into the message
-            message = MIMEText(taskID.__str__() + unfinishedTask.__str__(), 'html', 'utf-8')
-            message['From'] = Header('jingyang.auto', 'utf-8')
-            message['To'] = Header('jingyang_carl', 'utf-8')
-            message['Subject'] = Header('Task Report', 'utf-8')
+            if len(tempTaskIDPool.symmetric_difference(taskIDPool)):
+                # there is an update, write the update task and unfinished task into the messagex`
+                message = MIMEText(taskID.__str__() + unfinishedTask.__str__(), 'html', 'utf-8')
+                message['From'] = Header('jingyang.auto', 'utf-8')
+                message['To'] = Header('jingyang_carl', 'utf-8')
+                message['Subject'] = Header('Carl: Task Report', 'utf-8')
 
-            # send the email
-            server = smtplib.SMTP_SSL('smtp.qq.com')
-            server.login(sender, password)
-            server.sendmail(sender, receiver, message.as_string())
-            print("email sending finished")
+                # send the email
+                server = smtplib.SMTP_SSL('smtp.qq.com')
+                server.login(sender, password)
+                server.sendmail(sender, receiver, message.as_string())
+                print("email sending finished")
 
-            # update the taskIDPool
-            taskIDPool = tempTaskIDPool
+                # update the taskIDPool
+                taskIDPool = tempTaskIDPool
+
+            else:
+                # there isn't a update, redo the while
+                continue
 
         else:
-            # there isn't a update, redo the while
+            # there isn't any task in the list
             continue
 
-    else:
-        # there isn't any task in the list
-        continue
+        time.sleep(3)
 
+except:
+    # the program meet some problem and need to report
+    message = MIMEText('The Program meet some Problem', 'html', 'utf-8')
+    message['From'] = Header('jingyang.auto', 'utf-8')
+    message['To'] = Header('jingyang_carl', 'utf-8')
+    message['Subject'] = Header('Carl: Problem Report', 'utf-8')
+
+    # send the email
+    server = smtplib.SMTP_SSL('smtp.qq.com')
+    server.login(sender, password)
+    server.sendmail(sender, receiver, message.as_string())
+    print("email sending finished")
