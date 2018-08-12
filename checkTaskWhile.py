@@ -28,14 +28,12 @@ request.add_header('User-Agent', userAgent)
 try:
     # go into the while
     while True:
-        # print waiting info
-        print('running time: ' + str(time_current - time_start) + '; count: ' + str(whileCount) + '; status: waiting')
         time.sleep(1)
 
         # print running info
-        print('running time: ' + str(time_current - time_start) + '; count: ' + str(whileCount) + '; status: beginning')
         time_current = time.time()
         whileCount = whileCount+1
+        print('running time: ' + str(time_current - time_start) + '; count: ' + str(whileCount) + '; status: beginning')
 
         # open url
         print('running time: ' + str(time_current - time_start) + '; count: ' + str(whileCount) + '; status: open URL')
@@ -94,7 +92,7 @@ try:
             continue
 
 
-except:
+finally:
     # the program meet some problem and need to report
     message = MIMEText('The Program meet some Problem', 'html', 'utf-8')
     message['From'] = Header('jingyang.auto', 'utf-8')
