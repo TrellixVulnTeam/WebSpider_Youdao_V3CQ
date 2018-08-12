@@ -106,5 +106,4 @@ finally:
     server.sendmail(sender, receiver, message.as_string())
     print("email sending finished")
 
-    python = sys.executable
-    os.execl(python, python, *sys.argv)
+    os.execl(sys.executable, sys.executable, *sys.argv)
