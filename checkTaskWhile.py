@@ -108,4 +108,5 @@ finally:
     server.sendmail(sender, receiver, message.as_string())
     print("email sending finished")
 
+    time.sleep(1)
     os.execl(sys.executable, sys.executable, *sys.argv)
