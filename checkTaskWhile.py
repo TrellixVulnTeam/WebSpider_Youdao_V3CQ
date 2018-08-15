@@ -30,7 +30,7 @@ request.add_header('User-Agent', userAgent)
 try:
     # go into the while
     while True:
-        time.sleep(1)
+        time.sleep(2)
 
         # print running info
         time_current = time.time()
