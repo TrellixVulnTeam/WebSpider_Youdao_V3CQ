@@ -39,7 +39,7 @@ try:
 
         # open url
         print('running time: ' + str(time_current - time_start) + '; count: ' + str(whileCount) + '; status: open URL')
-        html = urllib.request.urlopen(request, timeout=1.5).read().decode()
+        html = urllib.request.urlopen(request, timeout=10).read().decode()
         soup = BeautifulSoup(html, 'html.parser')
 
         ############################################################
