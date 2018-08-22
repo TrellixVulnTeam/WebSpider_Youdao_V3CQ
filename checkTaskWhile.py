@@ -23,7 +23,7 @@ whileCount = 0
 taskIDPool = set()
 
 # initialization
-request = urllib.request.Request(url, timeout=2)
+request = urllib.request.Request(url)
 request.add_header('cookie', cookie)
 request.add_header('User-Agent', userAgent)
 
@@ -39,7 +39,7 @@ try:
 
         # open url
         print('running time: ' + str(time_current - time_start) + '; count: ' + str(whileCount) + '; status: open URL')
-        html = urllib.request.urlopen(request).read().decode()
+        html = urllib.request.urlopen(request, timeout=1.5).read().decode()
         soup = BeautifulSoup(html, 'html.parser')
 
         ############################################################
