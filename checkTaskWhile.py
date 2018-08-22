@@ -23,7 +23,7 @@ whileCount = 0
 taskIDPool = set()
 
 # initialization
-request = urllib.request.Request(url)
+request = urllib.request.Request(url, timeout=2)
 request.add_header('cookie', cookie)
 request.add_header('User-Agent', userAgent)
 
