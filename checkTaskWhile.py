@@ -6,6 +6,7 @@ import smtplib
 import sys
 import time
 import urllib.request
+import random
 
 # set browser parameters
 url = 'https://f.youdao.com/ds/task.do?method=index'
@@ -30,7 +31,8 @@ request.add_header('User-Agent', userAgent)
 try:
     # go into the while
     while True:
-        time.sleep(2)
+        sleepTime = random.randint(1,3)
+        time.sleep(sleepTime)
 
         # print running info
         time_current = time.time()
